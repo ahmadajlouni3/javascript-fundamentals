@@ -1,7 +1,7 @@
 process.stdin.on("data", (chunk) => {    
-    const data = chunk.toString();
+    const data = chunk.toString().split("\n");
     
-    function square(n) { return n * n }
-    
-    console.log(square(Number(chunk)))
+    const max = (a, b) => a > b ? a: b;
+
+    console.log(max(data[0], data[1]));
 })
