@@ -1,8 +1,11 @@
 process.stdin.on("data", (chunk) => {    
-    const data = chunk.toString().split("\n");
-    
-    const max = (a, b) => a > b ? a: b;
-    
+    const data = chunk.toString().trim().split(" ");
+    let maxNum = -Infinity;   
+    for (let i = 0; i < data.length; i++) {
+        if (maxNum < Number(data[i])) {
+            maxNum = Number(data[i]);
+        }
+    }
 
-    console.log(max(Number(data[0]), Number(data[1])));
+    console.log(maxNum);
 })
