@@ -1,11 +1,20 @@
-// Print the greeting on a single line below.
+function reverseString(str) {
+    // create container
+    let newString = "";
+
+    // create copy to reduce side effect.
+    const existingStr = str.trim();
+
+    // iterate through copy but in reverse way
+    for (let i = existingStr.length - 1; i >= 0; i--) {
+        newString += existingStr[i];
+    }
+
+    return newString;
+}
+
 
 process.stdin.on("data", (chunk) => {
-    const numbers = chunk.toString().split("\n");
-    const fnum = Number(numbers[0]);
-    const snum = Number(numbers[1]);
-    const tnum = Number(numbers[2]);
-    const avg = Math.floor((fnum +snum +tnum) / 3);
-
-    console.log(avg)
+    
+    console.log(reverseString(chunk.toString()))
 })
