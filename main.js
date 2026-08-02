@@ -1,11 +1,16 @@
 process.stdin.on("data", (chunk) => {    
     const data = chunk.toString().trim().split(" ");
-    let maxNum = -Infinity;   
-    for (let i = 0; i < data.length; i++) {
-        if (maxNum < Number(data[i])) {
-            maxNum = Number(data[i]);
+    
+    const words = {};
+
+    for (let word of data) {
+        if (words.hasOwnProperty(word)) {
+            words[word]++;
+        } else {
+            words[word] = 1;
         }
     }
 
-    console.log(maxNum);
+    const finalResult = Object.values(words);
+    console.log(finalResult.length);
 })
