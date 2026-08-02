@@ -1,16 +1,11 @@
 process.stdin.on("data", (chunk) => {    
     const data = chunk.toString().trim().split(" ");
     
-    const words = {};
+    const result = data
+    .map(item => Number(item))
+    .filter(item => item % 2 === 0)
+    .map(item => Math.pow(item, 2))
+    .reduce((acc, item) => acc + item, 0);
 
-    for (let word of data) {
-        if (words.hasOwnProperty(word)) {
-            words[word]++;
-        } else {
-            words[word] = 1;
-        }
-    }
-
-    const finalResult = Object.values(words);
-    console.log(finalResult.length);
+    console.log(result);
 })
