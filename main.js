@@ -1,20 +1,7 @@
-function reverseString(str) {
-    // create container
-    let newString = "";
+process.stdin.on("data", (chunk) => {    
+    const data = chunk.toString().split("\n");
+    const name = data[0];
+    const age = data[1];
 
-    // create copy to reduce side effect.
-    const existingStr = str.trim();
-
-    // iterate through copy but in reverse way
-    for (let i = existingStr.length - 1; i >= 0; i--) {
-        newString += existingStr[i];
-    }
-
-    return newString;
-}
-
-
-process.stdin.on("data", (chunk) => {
-    
-    console.log(reverseString(chunk.toString()))
+    console.log(`Hi, ${name}! You are ${age} years old.`)
 })
